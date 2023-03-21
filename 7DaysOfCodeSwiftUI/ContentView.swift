@@ -27,8 +27,18 @@ struct ContentView: View {
                     .padding(.top)
                 List {
                     ForEach(movies) { movie in
-                        Text(movie.title)
-                            .foregroundColor(.white)
+                        HStack() {
+                            Rectangle()
+                                .frame(width: 90, height: 120)
+                                .cornerRadius(18)
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text(movie.title)
+                                    .foregroundColor(.white)
+                                Text("Lançamento: \(movie.releaseDate)")
+                                    .foregroundColor(.gray)
+                            }
+                            .padding(.leading)
+                        }
                     }
                     .listRowBackground(Color.clear)
                 }
